@@ -23,7 +23,7 @@ void serve_connection(int sockfd)
 
   while (1) {
     uint8_t buf[1024];
-    int len = recv(sockfd, buf, sizeof buf, 0);
+    int len = recv(sockfd, buf, sizeof(buf), 0);
     if (len < 0) {
       perror_die("recv");
     } else if (len == 0) {
