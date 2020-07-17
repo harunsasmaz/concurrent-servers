@@ -1,4 +1,4 @@
-# concurrent-servers
+# Concurrent Servers
 
 Different approaches of socket servers to practice with.
 
