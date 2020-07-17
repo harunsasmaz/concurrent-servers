@@ -25,3 +25,13 @@ Epoll is the Linux's solution to the high volume I/O event notification problem 
 ## libuv Server
 
 There are various libraries for abstraction of event-driven loops, one of them is libuv. libuv is written in C, which makes it highly portable and very suitable for tying into high-level languages like JavaScript and Python. For the previous servers, the event loop was explicit in the main function; when using libuv, the loop is usually hidden inside the library itself, and user code just registers event handlers and runs the loop. Furthermore, libuv will use the fastest event loop implementation for a given platform: for Linux this is epoll.
+
+prime server is an example of libuv where clients sends a number to check if it is a prime number or not.
+
+## Utils
+
+Some common functions used in all of the servers are packed into an utils header. Also, a simple spammer code is added to measure the resources spent by threads. Run that spammer with large amount of threads to understand resource usage.
+
+## Test
+
+To mimic the client operations, there are two python scripts that behaves as clients and run some assertions related to functionality of servers. Simply, To test, start the servers on a specific port and run python scripts on the same port number.
