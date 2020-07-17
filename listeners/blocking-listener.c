@@ -1,12 +1,10 @@
-#include <errno.h>
-#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
 
-#include "utils.h"
+#include "../utils/utils.h"
 
 int main(int argc, const char** argv) {
   setvbuf(stdout, NULL, _IONBF, 0);
@@ -27,26 +25,11 @@ int main(int argc, const char** argv) {
   }
   report_peer_connected(&peer_addr, peer_addr_len);
 
-  // Set nonblocking mode on the socket.
-  int flags = fcntl(newsockfd, F_GETFL, 0);
-  if (flags == -1) {
-    perror_die("fcntl F_GETFL");
-  }
-
-  if (fcntl(newsockfd, F_SETFL, flags | O_NONBLOCK) == -1) {
-    perror_die("fcntl F_SETFL O_NONBLOCK");
-  }
-
   while (1) {
     uint8_t buf[1024];
     printf("Calling recv...\n");
     int len = recv(newsockfd, buf, sizeof buf, 0);
     if (len < 0) {
-      if (errno == EAGAIN || errno == EWOULDBLOCK) {
-        // No data on the socket; sleep a bit and re-try recv().
-        usleep(200 * 1000);
-        continue;
-      }
       perror_die("recv");
     } else if (len == 0) {
       printf("Peer disconnected; I'm done.\n");

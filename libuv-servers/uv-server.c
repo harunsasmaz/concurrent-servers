@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <uv.h>
 
-#include "utils.h"
+#include "../utils/utils.h"
 
 #define N_BACKLOG 64
 

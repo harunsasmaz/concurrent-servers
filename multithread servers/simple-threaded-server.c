@@ -7,7 +7,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "utils.h"
+#include "../utils/utils.h"
 
 typedef struct { int sockfd; } thread_config_t;
 
