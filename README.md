@@ -1,6 +1,6 @@
 # Concurrent Servers
 
-Different approaches of socket servers to practice with.
+Different approaches of TCP servers to practice. Starting from simple sequential server and goes step by step to improve the performance.
 
 ## Dependencies
 
