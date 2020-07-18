@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "utils.h"
+#include "utils/utils.h"
 
 typedef enum { WAIT_FOR_MSG, IN_MSG } ProcessingState;
 
