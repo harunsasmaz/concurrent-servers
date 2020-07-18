@@ -10,6 +10,7 @@ Different approaches of socket servers to practice with.
   * [pthread](https://www.cs.cmu.edu/afs/cs/academic/class/15492-f07/www/pthreads.html)
   * [netinet/in](http://manpages.ubuntu.com/manpages/trusty/man7/in.h.7posix.html)
   * [libuv](http://docs.libuv.org/en/v1.x/design.html)
+    * To download: <code> sudo apt-get install -y libuv-dev </code>
   * [sys/socket](http://manpages.ubuntu.com/manpages/trusty/man7/sys_socket.h.7posix.html)
   * [sys/epoll](https://man7.org/linux/man-pages/man7/epoll.7.html)
   * [sys/select](https://man7.org/linux/man-pages/man2/select.2.html)
