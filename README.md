@@ -2,6 +2,23 @@
 
 Different approaches of socket servers to practice with.
 
+## Dependencies
+
+* <b> Environment: </b> Linux Ubuntu 18.04.4 LTS
+
+* <b> Libraries: </b>
+  * pthread
+
+  * netinet/in
+
+  * libuv
+  
+  * sys/socket
+
+  * sys/epoll
+
+  * sys/select
+
 ## Sequential Server
 
 Our first server is a simple sequential server that does not use any special library besides POSIX for sockets. This server can serve connection for only one client at a moment. When a client is connected to the server, sequential server goes into a busy state and does not listen new connections until the current client is done. Hence, the other clients in the waiting state has to wait until serving is done.
