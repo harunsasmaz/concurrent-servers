@@ -9,13 +9,13 @@ EXECUTABLES = \
 	select-server \
 	epoll-server \
 	uv-server \
-	uv-timer-sleep-demo \
-	uv-timer-work-demo \
+	uv-sleep-timer \
+	uv-work-timer \
 	uv-isprime-server \
-	threadspammer \
+	thread-spammer \
 	blocking-listener \
 	nonblocking-listener \
-	threaded-server
+	simple-threaded-server
 
 all: $(EXECUTABLES)
 
@@ -25,7 +25,7 @@ sequential-server: utils/utils.c sequential-server.c
 select-server: utils/utils.c multithread-servers/select-server.c
 	$(CC) $(CCFLAGS) $^ -o $@ $(LDFLAGS)
 
-threaded-server: utils/utils.c multithread-servers/simple-threaded-server.c
+simple-threaded-server: utils/utils.c multithread-servers/simple-threaded-server.c
 	$(CC) $(CCFLAGS) $^ -o $@ $(LDFLAGS)
 
 epoll-server: utils/utils.c multithread-servers/epoll-server.c
@@ -34,16 +34,16 @@ epoll-server: utils/utils.c multithread-servers/epoll-server.c
 uv-server: utils/utils.c libuv-servers/uv-server.c
 	$(CC) $(CCFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBUV)
 
-uv-timer-sleep-demo: utils/utils.c libuv-servers/uv-timer-sleep-demo.c
+uv-sleep-timer: utils/utils.c libuv-servers/uv-sleep-timer.c
 	$(CC) $(CCFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBUV)
 
-uv-timer-work-demo: utils/utils.c libuv-servers/uv-timer-work-demo.c
+uv-work-timer: utils/utils.c libuv-servers/uv-work-timer.c
 	$(CC) $(CCFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBUV)
 
 uv-isprime-server: utils/utils.c libuv-servers/uv-isprime-server.c
 	$(CC) $(CCFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBUV)
 
-threadspammer: utils/threadspammer.c
+thread-spammer: utils/thread-spammer.c
 	$(CC) $(CCFLAGS) $^ -o $@ $(LDFLAGS)
 
 blocking-listener: utils/utils.c listeners/blocking-listener.c
